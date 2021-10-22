@@ -4,3 +4,4 @@ MonitorSpyAPI/MonitorSpyAPI/bin
 MonitorSpyAPI/MonitorSpyAPI/obj
 MonitorSpyAPI/MonitorSpyAPI.Dominio/bin
 MonitorSpyAPI/MonitorSpyAPI.Dominio/obj
+*.v2
