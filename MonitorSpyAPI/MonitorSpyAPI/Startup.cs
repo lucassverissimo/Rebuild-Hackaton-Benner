@@ -23,13 +23,19 @@ namespace MonitorSpyAPI {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
-            services.AddSwaggerGen(options => { 
-                options.SwaggerDoc("v1", 
-                    new OpenApiInfo { 
-                        Title = "Hackathon Benner 2021 Edition", 
-                        Version = "v1", 
+            services.AddSwaggerGen(options => {
+                options.SwaggerDoc("v1",
+                    new OpenApiInfo {
+                        Title = "Hackathon Benner 2021 Edition",
+                        Version = "v1",
                         Description = "API para monitoramento de aplicações"
-                    }); 
+                    });
+                options.AddSecurityDefinition("token", new OpenApiSecurityScheme {
+                    In = ParameterLocation.Header,
+                    Description = "Autenticação de acesso aos endpoints",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
             });
         }
 
@@ -42,7 +48,7 @@ namespace MonitorSpyAPI {
             app.UseSwagger();
             app.UseSwaggerUI(c => {
                 c.RoutePrefix = "swagger";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hackathon Benner");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MonitorSpy");
             });
 
             app.UseHttpsRedirection();
