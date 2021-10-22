@@ -1,16 +1,6 @@
 
 MonitorSpyAPI/.vs/MonitorSpyAPI/v16/.suo
-*.json
-*.dll
-*.exe
-*.pdb
-*.user
-*.sem
-*.cache
-*.cache
-*.txt
-*.xml
-*.cache
-*.user
-*.sem
-*.cache
+MonitorSpyAPI/MonitorSpyAPI/bin
+MonitorSpyAPI/MonitorSpyAPI/obj
+MonitorSpyAPI/MonitorSpyAPI.Dominio/bin
+MonitorSpyAPI/MonitorSpyAPI.Dominio/obj
