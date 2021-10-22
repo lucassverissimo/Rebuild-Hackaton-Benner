@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "f9g71wpqGFMcwUNbrKGtd7jN7mAs6fVPUlB6uyUiM2xITHVc+d9CPGzfUoBf9SSfzm7n1HkRHocASj1w0Pc0tg==",
+  "dgSpecHash": "5n93My5xowsFz7WBDktcZ5+2azXUJ3TL/yaUMu2+C+Oa4pFT+RmaAJcq8sTa657c8uJY90P7G8kAqwePFwdE/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vinicius Viana\\Documents\\GitHub\\Rebuild-Hackaton-Benner\\MonitorSpyAPI\\MonitorSpyAPI\\MonitorSpyAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
   "logs": []
 }
