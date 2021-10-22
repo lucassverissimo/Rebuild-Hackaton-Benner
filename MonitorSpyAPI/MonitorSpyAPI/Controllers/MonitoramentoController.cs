@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MonitorSpyAPI.Dominio;
+using MonitorSpyAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +12,55 @@ namespace MonitorSpyAPI.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class MonitoramentoController : ControllerBase {
-        // GET: api/<MonitoramentoController>
+        private readonly MonitorService _monitorService;
+
+        public MonitoramentoController(MonitorService monitorService) {
+            _monitorService = monitorService;
+        }
+        
         [HttpGet]
-        public IEnumerable<string> Get() {
-            return new string[] { "value1", "value2" };
+        public ActionResult<List<Monitoramento>> GetMonitors() => Ok(_monitorService.Get());
+
+        [HttpGet("{id}", Name ="GetMonitor")]        
+        public ActionResult<Monitoramento> GetMonitor(string id) {
+            var monitor = _monitorService.Get(id);
+
+            if (monitor == null)
+                return NotFound();
+
+            return Ok(monitor);
         }
 
-        // GET api/<MonitoramentoController>/5
-        [HttpGet("{id}")]
-        public string Get(int id) {
-            return "value";
-        }
-
-        // POST api/<MonitoramentoController>
         [HttpPost]
-        public void Post([FromBody] string value) {
-        }
+        public IActionResult Post([FromBody] Monitoramento monitoramento) {
+            _monitorService.Create(monitoramento);
 
-        // PUT api/<MonitoramentoController>/5
+            return CreatedAtRoute("GetMonitor", new { id = monitoramento.Id.ToString() }, monitoramento);
+        }
+        
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) {
-        }
+        public IActionResult Put(string id, [FromBody] Monitoramento monitoramentoIn) {
+            var monitoramento = _monitorService.Get(id);
 
-        // DELETE api/<MonitoramentoController>/5
+            if (monitoramento == null)
+            {
+                return NotFound();
+            }
+
+            _monitorService.Update(id, monitoramentoIn);
+            return NoContent();
+        }
+        
         [HttpDelete("{id}")]
-        public void Delete(int id) {
+        public IActionResult Delete(string id) {
+            var monitoramento = _monitorService.Get(id);
+
+            if (monitoramento == null)
+                return NotFound();
+
+            _monitorService.Remove(monitoramento.Id);
+
+            return NoContent();
         }
     }
 }

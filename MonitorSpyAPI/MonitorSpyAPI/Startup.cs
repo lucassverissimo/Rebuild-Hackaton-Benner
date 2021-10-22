@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using MonitorSpyAPI.Dominio;
+using MonitorSpyAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace MonitorSpyAPI {
             //configuração do mongodb
             services.AddSingleton<IMonitorStoreDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<MonitorStoreDatabaseSettings>>().Value);
+
+            services.AddSingleton<MonitorService>();
 
             services.AddControllers();
             services.AddSwaggerGen(options => {
