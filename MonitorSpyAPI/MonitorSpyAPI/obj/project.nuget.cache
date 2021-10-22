@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "f9g71wpqGFMcwUNbrKGtd7jN7mAs6fVPUlB6uyUiM2xITHVc+d9CPGzfUoBf9SSfzm7n1HkRHocASj1w0Pc0tg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vinicius Viana\\Documents\\GitHub\\Rebuild-Hackaton-Benner\\MonitorSpyAPI\\MonitorSpyAPI\\MonitorSpyAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vinicius Viana\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+  ],
+  "logs": []
+}
