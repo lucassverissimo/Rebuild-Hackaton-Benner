@@ -7,11 +7,6 @@ using System.Text;
 
 namespace MonitorSpyAPI.Dominio {
     public class Monitoramento {
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<BlogPostsCount>()
-                .HasNoKey();
-        }
-
         public string Token { get; set; }
         public string Perfil { get; set; }
         public string Usuario { get; set; }
