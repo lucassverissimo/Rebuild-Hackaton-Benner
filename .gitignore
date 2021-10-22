@@ -1,2 +1,16 @@
 
 MonitorSpyAPI/.vs/MonitorSpyAPI/v16/.suo
+*.json
+*.dll
+*.exe
+*.pdb
+*.user
+*.sem
+*.cache
+*.cache
+*.txt
+*.xml
+*.cache
+*.user
+*.sem
+*.cache
