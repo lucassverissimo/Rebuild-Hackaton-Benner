@@ -6,7 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using MonitorSpyAPI.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,14 @@ namespace MonitorSpyAPI {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+            
+            //configuração do mongodb
+            services.Configure<MonitorStoreDatabaseSettings>(
+                Configuration.GetSection(nameof(MonitorStoreDatabaseSettings)));
+            //configuração do mongodb
+            services.AddSingleton<IMonitorStoreDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<MonitorStoreDatabaseSettings>>().Value);
+
             services.AddControllers();
             services.AddSwaggerGen(options => {
                 options.SwaggerDoc("v1",
