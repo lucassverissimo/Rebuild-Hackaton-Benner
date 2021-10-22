@@ -1,9 +1,7 @@
 using System;
 
-namespace MonitorSpyAPI
-{
-    public class WeatherForecast
-    {
+namespace MonitorSpyAPI {
+    public class WeatherForecast {
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
