@@ -2,9 +2,9 @@
 using MonitorSpyAPI.Dominio;
 using MonitorSpyAPI.Dominio.Log;
 using MonitorSpyAPI.Services;
+using MonitorSpyAPI.Util.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -30,7 +30,7 @@ namespace MonitorSpyAPI.Controllers {
 
                 return Ok(monitoramentos);
             } catch (Exception ex) {
-                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
+                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now, Classe = ExtensionHelper.GetCurrentClass(), Projeto = ExtensionHelper.GetProjectName() });
                 return NotFound();
             }
         }
@@ -47,7 +47,7 @@ namespace MonitorSpyAPI.Controllers {
                 
                 return Ok(monitor);
             } catch (Exception ex) {
-                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
+                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now, Classe = ExtensionHelper.GetCurrentClass(), Projeto = ExtensionHelper.GetProjectName() });
                 return NotFound();
             }
         } 
@@ -59,7 +59,7 @@ namespace MonitorSpyAPI.Controllers {
 
                 return Ok();
             } catch (Exception ex) {
-                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
+                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now, Classe = ExtensionHelper.GetCurrentClass(), Projeto = ExtensionHelper.GetProjectName() });
                 return NotFound();
             }
         }
@@ -78,7 +78,7 @@ namespace MonitorSpyAPI.Controllers {
 
                 return Ok();
             } catch (Exception ex) {
-                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
+                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now, Classe = ExtensionHelper.GetCurrentClass(), Projeto = ExtensionHelper.GetProjectName() });
                 return NotFound();
             }
         }
@@ -97,7 +97,7 @@ namespace MonitorSpyAPI.Controllers {
 
                 return Ok();
             } catch (Exception ex) {
-                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
+                _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now, Classe = ExtensionHelper.GetCurrentClass(), Projeto = ExtensionHelper.GetProjectName() });
                 return NotFound();
             }
         }

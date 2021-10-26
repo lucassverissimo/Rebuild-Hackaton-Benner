@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MonitorSpyAPI.Util {
+namespace MonitorSpyAPI.Util.Helpers {
     public static class ExtensionHelper {
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetCurrentFullMethod() {
