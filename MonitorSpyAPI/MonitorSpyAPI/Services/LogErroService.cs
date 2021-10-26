@@ -1,16 +1,15 @@
 ﻿using MongoDB.Driver;
 using MonitorSpyAPI.Dominio;
 using MonitorSpyAPI.Dominio.Log;
-using System;
+using MonitorSpyAPI.Util;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MonitorSpyAPI.Services {
     public class LogErroService {
         private readonly IMongoCollection<LogFile> _LogFiles;
         public LogErroService(IMonitorStoreDatabaseSettings settings) {
-            var client = new MongoClient(settings.ConnectionString);
+            var client = new MongoClient(ConnectionDB.GetConnectionString(settings.ConnectionString, settings.UserDatabase, settings.PasswordDatabase));
             var database = client.GetDatabase(settings.DatabaseName);
 
             _LogFiles = database.GetCollection<LogFile>("LogFile");

@@ -1,7 +1,13 @@
 
+MonitorSpyAPI/.vs
 MonitorSpyAPI/.vs/MonitorSpyAPI/v16/.suo
+MonitorSpyAPI/.vs/MonitorSpyAPI/v16/.suo/TestStore
 MonitorSpyAPI/MonitorSpyAPI/bin
 MonitorSpyAPI/MonitorSpyAPI/obj
 MonitorSpyAPI/MonitorSpyAPI.Dominio/bin
 MonitorSpyAPI/MonitorSpyAPI.Dominio/obj
+MonitorSpyAPI/MonitorSpyAPI.Util/bin
+MonitorSpyAPI/MonitorSpyAPI.Util/obj
+MonitorSpyAPI/MonitorSpyAPITest/bin
+MonitorSpyAPI/MonitorSpyAPITest/obj
 *.v2

@@ -7,5 +7,7 @@ namespace MonitorSpyAPI.Dominio {
         public string MonitorCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
+        public string UserDatabase { get; set; }
+        public string PasswordDatabase { get; set; }
     }
 }

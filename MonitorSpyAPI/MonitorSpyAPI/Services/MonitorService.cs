@@ -1,5 +1,6 @@
 ﻿using MongoDB.Driver;
 using MonitorSpyAPI.Dominio;
+using MonitorSpyAPI.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MonitorSpyAPI.Services {
     public class MonitorService {
         private readonly IMongoCollection<Monitoramento> _monitoramentos;
         public MonitorService(IMonitorStoreDatabaseSettings settings) {
-            var client = new MongoClient(settings.ConnectionString);
+            var client = new MongoClient(ConnectionDB.GetConnectionString(settings.ConnectionString, settings.UserDatabase, settings.PasswordDatabase));
             var database = client.GetDatabase(settings.DatabaseName);
 
             _monitoramentos = database.GetCollection<Monitoramento>("Monitoramento");
