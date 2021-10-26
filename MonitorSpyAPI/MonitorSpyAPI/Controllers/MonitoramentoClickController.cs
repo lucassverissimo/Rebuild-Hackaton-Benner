@@ -12,50 +12,50 @@ using System.Threading.Tasks;
 namespace MonitorSpyAPI.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class MonitoramentoController : ControllerBase {
-        private readonly MonitorService _monitorService;
+    public class MonitoramentoClickController : ControllerBase {
+        private readonly MonitorClickService _monitorClickService;
         private readonly LogErroService _logErroService;
 
-        public MonitoramentoController(MonitorService monitorService, LogErroService logErroService) {
-            _monitorService = monitorService;
+        public MonitoramentoClickController(MonitorClickService monitorClickService, LogErroService logErroService) {
+            _monitorClickService = monitorClickService;
             _logErroService = logErroService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Monitoramento>>> GetMonitors() {
+        public async Task<ActionResult<IEnumerable<MonitoramentoClick>>> Get() {
             try {
-                List<Monitoramento> monitoramentos = new List<Monitoramento>();
+                List<MonitoramentoClick> monitoramentoClicks = new List<MonitoramentoClick>();
 
-                await Task.Run(() => monitoramentos = _monitorService.Get());
+                await Task.Run(() => monitoramentoClicks = _monitorClickService.Get());
 
-                return Ok(monitoramentos);
+                return Ok(monitoramentoClicks);
             } catch (Exception ex) {
                 _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
                 return NotFound();
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Monitoramento>> GetMonitor(string id) {
+        [HttpGet("{id}", Name = "GetMonitorClick")]
+        public async Task<ActionResult<Monitoramento>> Get(string id) {
             try {
-                Monitoramento monitor = null;
+                MonitoramentoClick monitoramentoClick = null;
 
-                await Task.Run(() => monitor = _monitorService.Get(id));
+                await Task.Run(() => monitoramentoClick = _monitorClickService.Get(id));
 
-                if (monitor == null)
+                if (monitoramentoClick == null)
                     return NotFound();
-                
-                return Ok(monitor);
+
+                return Ok(monitoramentoClick);
             } catch (Exception ex) {
                 _logErroService.Insert(new LogFile { Mensagem = ex.Message, DataHora = DateTime.Now });
                 return NotFound();
             }
-        } 
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Monitoramento monitoramento) {
+        public async Task<ActionResult> Post([FromBody] MonitoramentoClick monitorClick) {
             try {
-                await Task.Run(() => _monitorService.Insert(monitoramento));
+                await Task.Run(() => _monitorClickService.Insert(monitorClick));
 
                 return Ok();
             } catch (Exception ex) {
@@ -63,18 +63,18 @@ namespace MonitorSpyAPI.Controllers {
                 return NotFound();
             }
         }
-        
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] Monitoramento monitoramentoIn) {
+        public async Task<ActionResult> Put(string id, [FromBody] MonitoramentoClick monitorClickIn) {
             try {
-                Monitoramento monitor = null;
+                MonitoramentoClick monitorClick = null;
 
-                await Task.Run(() => monitor = _monitorService.Get(id));
+                await Task.Run(() => monitorClick = _monitorClickService.Get(id));
 
-                if (monitor == null)
+                if (monitorClick == null)
                     return NotFound();
 
-                await Task.Run(() => _monitorService.Update(id, monitoramentoIn));
+                await Task.Run(() => _monitorClickService.Update(id, monitorClickIn));
 
                 return Ok();
             } catch (Exception ex) {
@@ -82,18 +82,18 @@ namespace MonitorSpyAPI.Controllers {
                 return NotFound();
             }
         }
-        
+
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id) {
+        public async Task<ActionResult> Delete(string id) {
             try {
-                Monitoramento monitor = null;
+                MonitoramentoClick monitorClick = null;
 
-                await Task.Run(() => _monitorService.Get(id));
+                await Task.Run(() => monitorClick = _monitorClickService.Get(id));
 
-                if (monitor == null)
+                if (monitorClick == null)
                     return NotFound();
 
-                await Task.Run(() => _monitorService.Remove(monitor.Id));
+                await Task.Run(() => _monitorClickService.Remove(monitorClick.Id));
 
                 return Ok();
             } catch (Exception ex) {

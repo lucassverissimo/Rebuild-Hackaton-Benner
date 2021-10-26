@@ -25,7 +25,7 @@ namespace MonitorSpyAPI {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            
+
             //configuração do mongodb
             services.Configure<MonitorStoreDatabaseSettings>(
                 Configuration.GetSection(nameof(MonitorStoreDatabaseSettings)));
@@ -34,8 +34,15 @@ namespace MonitorSpyAPI {
                 sp.GetRequiredService<IOptions<MonitorStoreDatabaseSettings>>().Value);
 
             services.AddSingleton<MonitorService>();
+            services.AddSingleton<MonitorClickService>();
+            services.AddSingleton<LogErroService>();
 
             services.AddControllers();
+
+            ConfigureSwagger(services);
+        }
+
+        private static void ConfigureSwagger(IServiceCollection services) {
             services.AddSwaggerGen(options => {
                 options.SwaggerDoc("v1",
                     new OpenApiInfo {
@@ -43,12 +50,12 @@ namespace MonitorSpyAPI {
                         Version = "v1",
                         Description = "API para monitoramento de aplicações"
                     });
-                options.AddSecurityDefinition("token", new OpenApiSecurityScheme {
-                    In = ParameterLocation.Header,
-                    Description = "Autenticação de acesso aos endpoints",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
+                //options.AddSecurityDefinition("token", new OpenApiSecurityScheme {
+                //    In = ParameterLocation.Header,
+                //    Description = "Autenticação de acesso aos endpoints",
+                //    Name = "Authorization",
+                //    Type = SecuritySchemeType.ApiKey
+                //});
             });
         }
 

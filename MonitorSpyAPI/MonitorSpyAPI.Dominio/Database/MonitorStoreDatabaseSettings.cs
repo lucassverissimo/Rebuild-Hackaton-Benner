@@ -8,10 +8,4 @@ namespace MonitorSpyAPI.Dominio {
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
-
-    public interface IMonitorStoreDatabaseSettings {
-        public string MonitorCollectionName { get; set; }
-        public string ConnectionString { get; set; }
-        public string DatabaseName { get; set; }
-    }
 }
