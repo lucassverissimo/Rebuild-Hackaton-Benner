@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\vinicius.vasconcelos\Documents\GitHub\Rebuild-Hackaton-Benner\MonitorSpyAPI\MonitorSpyAPI\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
+    <History>True|2021-10-27T19:50:59.1090254Z;True|2021-10-27T16:50:31.8570297-03:00;True|2021-10-27T16:48:48.8394180-03:00;True|2021-10-27T15:50:15.7743955-03:00;True|2021-10-27T15:47:08.6844585-03:00;True|2021-10-27T15:43:41.9522874-03:00;True|2021-10-27T15:42:42.1447608-03:00;True|2021-10-27T15:17:32.5492663-03:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+</Project>
