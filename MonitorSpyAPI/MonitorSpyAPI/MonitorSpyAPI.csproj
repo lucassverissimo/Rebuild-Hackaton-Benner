@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MonitorSpyAPI.Dominio\MonitorSpyAPI.Dominio.csproj" />
+    <ProjectReference Include="..\MonitorSpyAPI.Util\MonitorSpyAPI.Util.csproj" />
   </ItemGroup>
 
 
