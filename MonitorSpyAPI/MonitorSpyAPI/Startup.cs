@@ -38,6 +38,7 @@ namespace MonitorSpyAPI {
             services.AddSingleton<LogErroService>();
 
             services.AddControllers();
+            services.AddCors();
 
             ConfigureSwagger(services);
         }
@@ -64,6 +65,11 @@ namespace MonitorSpyAPI {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseSwagger();
             app.UseSwaggerUI(c => {
